@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Clan extends Model
 {
@@ -13,5 +14,9 @@ class Clan extends Model
      */
     public function getRouteKeyName() {
         return 'subdomain';
+    }
+
+    public function users() {
+        return $this->belongsToMany(User::class);
     }
 }

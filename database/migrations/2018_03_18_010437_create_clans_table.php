@@ -15,9 +15,15 @@ class CreateClansTable extends Migration
     {
         Schema::create('clans', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('subdomain');
+            $table->string('name')->nullable(false);
+            $table->string('subdomain')->nullable(false)->unique();
             $table->timestamps();
+        });
+
+        Schema::create('clan_user', function (Blueprint $table) {
+            $table->integer('clan_id');
+            $table->integer('user_id');
+            $table->primary(['clan_id', 'user_id']);
         });
     }
 
@@ -29,5 +35,6 @@ class CreateClansTable extends Migration
     public function down()
     {
         Schema::dropIfExists('clans');
+        Schema::dropIfExists('clan_user');
     }
 }
