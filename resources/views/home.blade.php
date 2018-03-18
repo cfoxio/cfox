@@ -19,5 +19,17 @@
             </div>
         </div>
     </div>
+    @foreach ($clans as $clan)
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ $clan->name }}</div>
+                    <div class="card-body">
+                        <a href="http://{{ $clan->subdomain }}{{ config('session.domain') }}">Go to dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
 </div>
 @endsection
