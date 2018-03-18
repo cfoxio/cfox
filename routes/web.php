@@ -11,10 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Subdomain Handling
+Route::domain('{clan}.'.Config::get('app.url'))->group(function () {
+    Route::middleware('auth.clan')->group(function () {
+        Route::get('/', 'ClansController@index');
+
+        Auth::routes();
+    });
 });
 
-Auth::routes();
+// Maindomain-Handling
+Route::domain(Config::get('app.url'))->group(function() {
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
+});
