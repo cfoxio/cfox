@@ -13,9 +13,11 @@
 
 // Subdomain Handling
 Route::domain('{clan}.'.Config::get('app.url'))->group(function () {
-    Route::get('/', 'ClansController@index');
+    Route::middleware('auth.clan')->group(function () {
+        Route::get('/', 'ClansController@index');
 
-    Auth::routes();
+        Auth::routes();
+    });
 });
 
 // Maindomain-Handling
