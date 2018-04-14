@@ -54,3 +54,7 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+// Admin LTE
+// import AdminLTE from 'admin-lte'
+require('admin-lte');
