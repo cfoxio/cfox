@@ -29,4 +29,8 @@ Route::domain(Config::get('app.url'))->group(function() {
     Auth::routes();
 
     Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/adminlte', function() {
+        return view('adminlte.test');
+    })->name('adminlte.test');
 });
