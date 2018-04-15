@@ -8,8 +8,9 @@
 // Font Awesome
 @import "~font-awesome/scss/font-awesome";
 
-// AdminLTE
+// AdminLTE and its plugins
 @import "~admin-lte/build/scss/AdminLTE";
+@import "~admin-lte/plugins/select2/select2.min.css";
 
 .navbar-laravel {
   background-color: #fff;
