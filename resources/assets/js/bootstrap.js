@@ -55,6 +55,9 @@ if (token) {
 //     encrypted: true
 // });
 
+// Dropzone.js
+import 'dropzone';
+
 // Admin LTE
 require('admin-lte');
 
