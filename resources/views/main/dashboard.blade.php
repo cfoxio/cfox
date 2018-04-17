@@ -25,6 +25,7 @@
                 <div class="card">
                     <div class="card-header">{{ $clan->name }}</div>
                     <div class="card-body">
+                        <img src="file:///D:/workspace/cfox/storage/app/{{ $clan->logo }}" alt="">
                         <a href="http://{{ $clan->subdomain }}{{ config('session.domain') }}">Go to dashboard</a>
                     </div>
                 </div>
@@ -36,7 +37,7 @@
             <div class="card">
                 <div class="card-header">Your cool clan!</div>
                 <div class="card-body">
-                    <a href="{{ route('main.create_clan') }}">Create it!</a>
+                    <a href="{{ route('main.clans.create') }}">Create it!</a>
                 </div>
             </div>
         </div>

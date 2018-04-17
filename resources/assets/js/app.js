@@ -20,3 +20,10 @@ window.Vue = require('vue');
 // const app = new Vue({
 //     el: '#app'
 // });
+
+$(document).ready(function() {
+    // handle custom file input labels
+    $('.custom-file-input').on('change',function(){
+        $(this).next('.custom-file-label').addClass("selected").html($(this).val());
+    });
+});

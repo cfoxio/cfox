@@ -17,6 +17,9 @@ class CreateClansTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable(false);
             $table->string('subdomain')->nullable(false)->unique();
+            $table->string('homepage')->nullable(true);
+            $table->string('country');
+            $table->string('logo')->nullable(true);
             $table->timestamps();
         });
 

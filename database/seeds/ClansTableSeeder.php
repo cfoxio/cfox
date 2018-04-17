@@ -13,17 +13,20 @@ class ClansTableSeeder extends Seeder
     {
         DB::table('clans')->insert([
             'name' => 'FoXRaiD Gaming',
-            'subdomain' => 'foxraid'
+            'subdomain' => 'foxraid',
+            'country' => 'DE'
         ]);
 
         DB::table('clans')->insert([
             'name' => 'Turtle eSport',
-            'subdomain' => 'turtle-esport'
+            'subdomain' => 'turtle-esport',
+            'country' => 'DE'
         ]);
 
         DB::table('clans')->insert([
             'name' => 'Legarto Industries',
-            'subdomain' => 'legarto'
+            'subdomain' => 'legarto',
+            'country' => 'DE'
         ]);
 
         DB::table('clan_user')->insert([

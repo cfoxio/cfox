@@ -8,6 +8,13 @@ use App\User;
 class Clan extends Model
 {
     /**
+     * fillable fields
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'homepage', 'subdomain', 'country', 'logo'];
+
+    /**
      * change the routeKeyName for Route Model Binding
      *
      * @return string

@@ -14,7 +14,7 @@
 // Subdomain Handling
 Route::domain('{clan}.'.Config::get('app.url'))->group(function () {
     Route::middleware('auth.clan')->group(function () {
-        Route::get('/', 'ClansController@index');
+        Route::get('/', 'ClansController@index')->name('clan.dashboard');
 
         Auth::routes();
     });
@@ -31,8 +31,11 @@ Route::domain(Config::get('app.url'))->group(function() {
     Route::get('/adminlte', function() {
         return view('adminlte.test');
     })->name('adminlte.test');
-    
+
     Route::get('/home', 'HomeController@index')->name('main.dashboard');
 
-    Route::get('/new-clan', 'ClansController@create')->name('main.create_clan');
+    Route::prefix('clans')->group(function() {
+        Route::get('new', 'ClansController@create')->name('main.clans.create');
+        Route::post('new', 'ClansController@store');
+    });
 });
