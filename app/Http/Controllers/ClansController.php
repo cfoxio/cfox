@@ -25,7 +25,7 @@ class ClansController extends Controller
         // validate data
         $this->validate(request(), [
             'name' => 'required',
-            'homepage' => 'url',
+            'homepage' => 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
             'subdomain' => 'required|unique:clans',
             'country' => 'required',
             'logo' => 'file|image'

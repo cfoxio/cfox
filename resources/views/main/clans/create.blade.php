@@ -18,14 +18,14 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="name">Clan name</label>
-                                <input type="text" class="{{ count($errors->get('name')) ? 'is-invalid ' : "" }}form-control" name="name" id="name" placeholder="Name of your clan">
+                                <input type="text" class="{{ count($errors->get('name')) ? 'is-invalid ' : "" }}form-control" name="name" id="name" placeholder="Name of your clan" value="{{ old('name') }}">
                                 <div class="invalid-feedback">
                                     {{ $errors->first('name') }}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="homepage">Homepage</label>
-                                <input type="text" class="{{ count($errors->get('homepage')) ? 'is-invalid ' : "" }}form-control" name="homepage" id="homepage" placeholder="www.yourclan.com">
+                                <input type="text" class="{{ count($errors->get('homepage')) ? 'is-invalid ' : "" }}form-control" name="homepage" id="homepage" placeholder="http://www.yourclan.com" value="{{ old('homepage') }}">
                                 <div class="invalid-feedback">
                                     {{ $errors->first('homepage') }}
                                 </div>
@@ -33,7 +33,7 @@
                             <div class="form-group">
                                 <label for="subdomain">Subdomain</label>
                                 <div class="input-group">
-                                    <input type="text" class="{{ count($errors->get('subdomain')) ? 'is-invalid ' : "" }}form-control" name="subdomain" id="subdomain" placeholder="The subdomain you want to use for your clan">
+                                    <input type="text" class="{{ count($errors->get('subdomain')) ? 'is-invalid ' : "" }}form-control" name="subdomain" id="subdomain" placeholder="The subdomain you want to use for your clan" value="{{ old('subdomain') }}">
                                     <div class="input-group-append">
                                         <span class="input-group-text">.cfox.io</span>
                                     </div>
@@ -300,10 +300,10 @@
                                 <label for="exampleInputFile">Clan Logo</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="{{ count($errors->get('subdomain')) ? 'is-invalid ' : "" }}custom-file-input" name="logo" id="logo">
+                                        <input style="width: 100%;" type="file" class="{{ count($errors->get('logo')) ? 'is-invalid ' : "" }}custom-file-input" name="logo" id="logo">
                                         <label class="custom-file-label" for="logo">Choose Logo</label>
                                         <div class="invalid-feedback">
-                                            {{ $errors->first('subdomain') }}
+                                            {{ $errors->first('logo') }}
                                         </div>
                                     </div>
                                 </div>
