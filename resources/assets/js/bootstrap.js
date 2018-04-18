@@ -55,6 +55,12 @@ if (token) {
 //     encrypted: true
 // });
 
+// Dropzone.js
+import 'dropzone';
+
 // Admin LTE
-// import AdminLTE from 'admin-lte'
 require('admin-lte');
+
+// Plugins used by Admin LTE
+// Select2
+import 'admin-lte/plugins/select2/select2.min';

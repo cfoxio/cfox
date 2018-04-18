@@ -15,8 +15,15 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//
+// const app = new Vue({
+//     el: '#app'
+// });
 
-const app = new Vue({
-    el: '#app'
+$(document).ready(function() {
+    // handle custom file input labels
+    $('.custom-file-input').on('change',function(){
+        $(this).next('.custom-file-label').addClass("selected").html($(this).val());
+    });
 });

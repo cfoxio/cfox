@@ -24,6 +24,6 @@ class HomeController extends Controller
     public function index()
     {
         $clans = request()->user()->clans;
-        return view('home', compact('clans'));
+        return view('main.dashboard', compact('clans'));
     }
 }
