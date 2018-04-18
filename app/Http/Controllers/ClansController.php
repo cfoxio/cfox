@@ -36,7 +36,7 @@ class ClansController extends Controller
 
         if (request()->file('logo')) {
             // Save logo
-            $logo = request()->file('logo')->store('logos/clans');
+            $logo = request()->file('logo')->store('public/logos/clans');
             $clan->logo = $logo;
             $clan->save();
         }
