@@ -15,7 +15,7 @@
                 <img src="/img/user_images/clenz_160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Christian Lenz</a>
+                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
             </div>
         </div>
 
@@ -53,6 +53,12 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('logout') }}" class="nav-link">
+                        <i class="nav-icon fa fa-sign-out"></i>
+                        <p>Logout</p>
+                    </a>
                 </li>
             </ul>
         </nav>

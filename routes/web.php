@@ -26,6 +26,8 @@ Route::domain(Config::get('app.url'))->group(function() {
         return view('welcome');
     });
 
+    Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
     Auth::routes();
 
     Route::get('/adminlte', function() {
