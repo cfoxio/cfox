@@ -1,0 +1,3 @@
+{
+    "I agree to the terms": "I agree to the <a href='{{ url('/terms') }}'>terms</a>"
+}
