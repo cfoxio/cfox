@@ -21171,3 +21171,14 @@ a.text-muted:hover {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.login-logo {
+  padding-top: 25px;
+}
+
+.login-page,
+.register-page {
+  background: url(/images/eSport_header.jpg?5703dc5842425ff81578f29b5c266ac0);
+  background-size: cover;
+  background-position: center;
+}
+
