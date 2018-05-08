@@ -15,6 +15,13 @@ class UsersTableSeeder extends Seeder
             'name' => 'cfox',
             'email' => 'cfox@cfox.io',
             'password' => bcrypt('testtest'),
+            'language' => 'en',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'sp4m',
+            'email' => 'sp4m@cfox.io',
+            'password' => bcrypt('testtest'),
+            'language' => 'de',
         ]);
     }
 }

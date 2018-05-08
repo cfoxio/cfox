@@ -20,5 +20,8 @@
         "popper.js": "^1.12",
         "vue": "^2.5.7",
         "dropzone": "^5.4.0"
+    },
+    "dependencies": {
+        "icheck": "^1.0.2"
     }
 }

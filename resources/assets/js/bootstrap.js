@@ -64,3 +64,4 @@ require('admin-lte');
 // Plugins used by Admin LTE
 // Select2
 import 'admin-lte/plugins/select2/select2.min';
+require('icheck');

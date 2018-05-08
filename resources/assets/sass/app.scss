@@ -11,10 +11,23 @@
 // AdminLTE and its plugins
 @import "~admin-lte/build/scss/AdminLTE";
 @import "~admin-lte/plugins/select2/select2.min.css";
+@import "~icheck/skins/all.css";
 
 @import "~dropzone/dist/dropzone.css";
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.login-logo,
+.register-logo {
+    padding-top: 25px;
+}
+
+.login-page,
+.register-page {
+    background: url(../img/eSport_header.jpg);
+    background-size: cover;
+    background-position: center;
 }

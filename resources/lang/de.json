@@ -1,0 +1,11 @@
+{
+    "E-Mail": "Email",
+    "Password": "Passwort",
+    "Remember Me": "An mich erinnern",
+    "Forgot Your Password?": "Passwort vergessen?",
+    "Don't have an account? Register now!": "Neuen Account erstellen",
+
+    "I am already registered": "Ich habe bereits einen Account",
+    "Register": "Registrieren",
+    "I agree to the terms": "Ich stimme den <a href='{{ url('/terms') }}'>Nutzungsbedingungen</a> zu"
+}
