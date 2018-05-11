@@ -10,7 +10,7 @@
                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                 <li class="breadcrumb-item active">Create new clan</li>
             </ol> --}}
-            {{ Breadcrumbs::render('main.clans.create') }}
+            @yield('breadcrumb')
         </div><!-- /.col -->
 
     </div><!-- /.row -->

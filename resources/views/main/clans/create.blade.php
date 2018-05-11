@@ -2,6 +2,10 @@
 
 @section('headline', 'Create new clan')
 
+@section('breadcrumb')
+    {{ Breadcrumbs::render('main.clans.create') }}
+@endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
