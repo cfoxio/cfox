@@ -28,7 +28,7 @@
                             <div class="row">
                                 <div class="col-sm-6 border-right">
                                     <div class="description-block">
-                                        <h5 class="description-header">32</h5>
+                                        <h5 class="description-header">{{ count($clan->users()) }}</h5>
                                         <span class="description-text">Members</span>
                                     </div>
                                     <!-- /.description-block -->
