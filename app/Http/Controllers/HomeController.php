@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $clans = request()->user()->clans;
+        $clans = request()->user()->clans();
         return view('main.dashboard', compact('clans'));
     }
 }

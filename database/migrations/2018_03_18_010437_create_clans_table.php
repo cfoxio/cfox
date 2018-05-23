@@ -22,12 +22,6 @@ class CreateClansTable extends Migration
             $table->string('logo')->nullable(true);
             $table->timestamps();
         });
-
-        Schema::create('clan_user', function (Blueprint $table) {
-            $table->integer('clan_id');
-            $table->integer('user_id');
-            $table->primary(['clan_id', 'user_id']);
-        });
     }
 
     /**
@@ -38,6 +32,5 @@ class CreateClansTable extends Migration
     public function down()
     {
         Schema::dropIfExists('clans');
-        Schema::dropIfExists('clan_user');
     }
 }

@@ -28,7 +28,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function memberships() {
+        return $this->hasMany(Membership::class);
+    }
+
     public function clans() {
-        return $this->belongsToMany(Clan::class);
+        $clans = collect();
+        foreach ($this->memberships as $membership) {
+            $clans->push($membership->clan);
+        }
+        return $clans;
     }
 }
