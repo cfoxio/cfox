@@ -13,7 +13,7 @@ class ClansTableSeeder extends Seeder
     public function run()
     {
         Clan::truncate();
-        
+
         DB::table('clans')->insert([
             'name' => 'FoXRaiD Gaming',
             'subdomain' => 'foxraid',
@@ -32,19 +32,5 @@ class ClansTableSeeder extends Seeder
             'country' => 'DE'
         ]);
 
-        DB::table('memberships')->insert([
-            'clan_id' => '1',
-            'user_id' => '1'
-        ]);
-
-        DB::table('memberships')->insert([
-            'clan_id' => '3',
-            'user_id' => '1'
-        ]);
-
-        DB::table('memberships')->insert([
-            'clan_id' => '3',
-            'user_id' => '2'
-        ]);
     }
 }

@@ -16,8 +16,12 @@ class CreateTeamsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('steamurl');
-            $table->integer('clan_id');
+            $table->string('slug');
+            $table->string('steamurl')->nullable(true);
+            $table->integer('clan_id')->nullable(true);
+            $table->integer('game_id')->default(0);
+            $table->integer('teamleader_id')->nullable(true);
+            $table->integer('manager_id')->nullable(true);
             $table->timestamps();
         });
 

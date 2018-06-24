@@ -20,12 +20,14 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'cfox',
+            'slug' => str_slug('cfox', '-'),
             'email' => 'cfox@cfox.io',
             'password' => bcrypt('testtest'),
             'language' => 'en',
         ]);
         DB::table('users')->insert([
             'name' => 'sp4m',
+            'slug' => str_slug('sp4m', '-'),
             'email' => 'sp4m@cfox.io',
             'password' => bcrypt('testtest'),
             'language' => 'de',
@@ -41,5 +43,20 @@ class UsersTableSeeder extends Seeder
             $membership->clan()->associate(Clan::find($faker->numberBetween(1, 3)));
             $membership->save();
         }
+        
+        DB::table('memberships')->insert([
+            'clan_id' => '1',
+            'user_id' => '1'
+        ]);
+
+        DB::table('memberships')->insert([
+            'clan_id' => '3',
+            'user_id' => '1'
+        ]);
+
+        DB::table('memberships')->insert([
+            'clan_id' => '3',
+            'user_id' => '2'
+        ]);
     }
 }
