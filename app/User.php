@@ -39,4 +39,12 @@ class User extends Authenticatable
         }
         return $clans;
     }
+
+    public function isMemberOf(Clan $clan) {
+        if ($this->clans()->contains($clan)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

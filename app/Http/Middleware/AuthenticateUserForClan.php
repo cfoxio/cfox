@@ -24,8 +24,9 @@ class AuthenticateUserForClan
         }
 
         // Check if user is authorized to access requested clan
-        if (!$user->clans()->contains($clan)) {
-            return redirect(route('home'));
+
+        if (!$user->isMemberOf($clan)) {
+            return redirect(route('main.dashboard'));
         }
         return $next($request);
     }
