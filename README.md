@@ -6,8 +6,13 @@ To install an instance of cfox on your local machine just follow these steps.
 ```
 git clone git@github.com:cfoxio/cfox.git
 cd cfox
-composer install
 ```
+
+OPTIONAL: You could use ddev to start the project locally on your machine if you like. To use it just type `ddev start` to build up your environment and then `ddev ssh` into it. Now just execute all of the following commands inside your ddev environment.
+
+First you need to install laravel and all the other dependencies of this application.
+
+```composer install```
 
 Now edit the `.env` file in the root directory of the repository. Just change the `APP_URL`, `SESSION_DOMAIN` and the database information.
 
