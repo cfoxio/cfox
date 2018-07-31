@@ -18,7 +18,7 @@ Route::domain('{clan}.'.Config::get('app.url'))->group(function () {
 
         Route::get('/member', 'Clan\MemberController@index')->name('clan.member');
         Route::get('/teams', 'Clan\TeamController@index')->name('clan.teams');
-        Route::get('/team', 'Clan\TeamController@show')->name('clan.teams.show');
+        Route::get('/team/{team}', 'Clan\TeamController@show')->name('clan.teams.show');
 
         Auth::routes();
     });

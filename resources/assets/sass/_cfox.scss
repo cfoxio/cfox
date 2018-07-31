@@ -2,3 +2,41 @@
 .widget-add-clan .description-block .description-text {
     color: #212529;
 }
+
+.player-card {
+    background: #dedfe1;
+    margin: 20px;
+    border-radius: 0.25rem;
+}
+
+.player-card .image {
+    // padding-left: 0;
+    text-align: center;
+}
+
+.player-card a {
+    color: #212529;
+}
+
+.player-card h5 {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.player-card .player-info-item {
+    padding: 0 10px;
+    text-align: center;
+}
+
+.team-image-item {
+    height: 500px;
+    background-size: cover;
+    background-position: center center;
+}
+
+@include media-breakpoint-up(md) {
+    .player-card h5 {
+        text-align: left;
+        padding: 0;
+    }
+}
