@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Membership;
 use App\Team;
+use App\User;
 
 class Clan extends Model
 {
@@ -24,22 +24,13 @@ class Clan extends Model
         return 'subdomain';
     }
 
-    public function memberships() {
-        return $this->hasMany(Membership::class);
-    }
-
     /**
          * Get the clan's users.
          *
-         * @param  string  $value
          * @return string
          */
     public function users() {
-        $users = collect();
-        foreach($this->memberships as $membership) {
-            $users->push($membership->user);
-        }
-        return $users;
+        return $this->belongsToMany(User::class);
     }
 
     public function teams() {

@@ -44,20 +44,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function memberships() {
-        return $this->hasMany(Membership::class);
-    }
-
     public function clans() {
-        $clans = collect();
-        foreach ($this->memberships as $membership) {
-            $clans->push($membership->clan);
-        }
-        return $clans;
+        return $this->belongsToMany(Clan::class);
     }
 
     public function isMemberOf(Clan $clan) {
-        if ($this->clans()->contains($clan)) {
+        if ($this->clans->contains($clan)) {
             return true;
         } else {
             return false;

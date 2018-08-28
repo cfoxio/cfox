@@ -27,11 +27,11 @@ class TeamsTableSeeder extends Seeder
             ->create(['name' => 'FoXRaiD Gaming'])
             ->each(function ($t) {
                 $t->clan()->associate(Clan::find(1));
-                $players = Clan::find(1)->users()
+                $players = Clan::find(1)->users
                                         ->random(5);
                 $t->users()->attach($players->pluck('id')->toArray());
                 $t->teamleader()->associate($players->random(1)->first());
-                $t->manager()->associate(Clan::find(1)->users()->random(1)->first());
+                $t->manager()->associate(Clan::find(1)->users->random(1)->first());
                 $t->save();
             });
     }

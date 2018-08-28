@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
-use App\Membership;
 use App\Clan;
 use Faker\Factory as Faker;
 
@@ -16,7 +15,6 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         User::truncate();
-        Membership::truncate();
 
         DB::table('users')->insert([
             'name' => 'cfox',
@@ -35,28 +33,8 @@ class UsersTableSeeder extends Seeder
 
         $faker = Faker::create();
 
-        $users = factory(User::class, 50)->create();
-
-        foreach ($users as $user) {
-            $membership = new Membership;
-            $membership->user()->associate($user);
-            $membership->clan()->associate(Clan::find($faker->numberBetween(1, 3)));
-            $membership->save();
-        }
-        
-        DB::table('memberships')->insert([
-            'clan_id' => '1',
-            'user_id' => '1'
-        ]);
-
-        DB::table('memberships')->insert([
-            'clan_id' => '3',
-            'user_id' => '1'
-        ]);
-
-        DB::table('memberships')->insert([
-            'clan_id' => '3',
-            'user_id' => '2'
-        ]);
+        $users = factory(User::class, 50)->create()->each(function($u) {
+            $u->clans()->attach(Clan::find(1));
+        });
     }
 }
