@@ -1,4 +1,4 @@
-version: '3'
+version: '3.6'
 #ddev-generated
 services:
   db:
@@ -6,9 +6,17 @@ services:
     image: $DDEV_DBIMAGE
     stop_grace_period: 60s
     volumes:
-      - "${DDEV_IMPORTDIR}:/db"
-      - "${DDEV_DATADIR}:/var/lib/mysql"
-      - ".:/mnt/ddev_config"
+      - type: "volume"
+        source: mariadb-database
+        target: "/var/lib/mysql"
+        volume:
+          nocopy: true
+      - type: "bind"
+        source: "${DDEV_IMPORTDIR}"
+        target: "/db"
+      - type: "bind"
+        source: "."
+        target: "/mnt/ddev_config"
     restart: "no"
     user: "$DDEV_UID:$DDEV_GID"
     ports:
@@ -22,13 +30,13 @@ services:
     environment:
       - COLUMNS=$COLUMNS
       - LINES=$LINES
-
+    command: "$DDEV_MARIADB_LOCAL_COMMAND"
   web:
     container_name: ddev-${DDEV_SITENAME}-web
     image: $DDEV_WEBIMAGE
     volumes:
       - "../:/var/www/html:cached"
-      - ".:/mnt/ddev_config"
+      - ".:/mnt/ddev_config:ro"
     restart: "no"
     user: "$DDEV_UID:$DDEV_GID"
     depends_on:
@@ -91,3 +99,7 @@ networks:
   default:
     external:
       name: ddev_default
+volumes:
+  mariadb-database:
+    name: "${DDEV_SITENAME}-mariadb"
+  
