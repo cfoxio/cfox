@@ -16,13 +16,25 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('password');
+            $table->rememberToken();
             $table->string('slug');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->date('birthday')->default(now());
+            $table->string('gender')->default('undefined');
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
             $table->string('language')->default('en');
             $table->string('nationality')->default('DE');
-            $table->rememberToken();
+            $table->string('image')->nullable();
+            $table->string('steam')->nullable();
+            $table->string('xboxlive')->nullable();
+            $table->string('psn')->nullable();
+            $table->string('origin')->nullable();
+            $table->string('uplay')->nullable();
+            $table->string('battlenet')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

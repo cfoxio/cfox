@@ -21,6 +21,7 @@ class CreateClansTable extends Migration
             $table->string('country');
             $table->string('logo')->nullable(true);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('clan_user', function (Blueprint $table) {

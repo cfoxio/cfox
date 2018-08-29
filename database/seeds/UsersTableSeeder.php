@@ -16,12 +16,15 @@ class UsersTableSeeder extends Seeder
     {
         User::truncate();
 
+        $faker = Faker::create();
+
         DB::table('users')->insert([
             'name' => 'cfox',
             'slug' => str_slug('cfox', '-'),
             'email' => 'cfox@cfox.io',
             'password' => bcrypt('testtest'),
             'language' => 'en',
+            'birthday' => $faker->dateTimeBetween('-50 years', '-15 years'),
         ]);
         DB::table('users')->insert([
             'name' => 'sp4m',
@@ -29,9 +32,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'sp4m@cfox.io',
             'password' => bcrypt('testtest'),
             'language' => 'de',
+            'birthday' => $faker->dateTimeBetween('-50 years', '-15 years'),
         ]);
-
-        $faker = Faker::create();
 
         $users = factory(User::class, 50)->create()->each(function($u) {
             $u->clans()->attach(Clan::find(1));

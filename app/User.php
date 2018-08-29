@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Carbon\Carbon;
 use App\Clan;
 
 class User extends Authenticatable
@@ -44,6 +45,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $casts = [
+        'birthday' => 'date:Y-m-d'
+    ];
+
     public function clans() {
         return $this->belongsToMany(Clan::class);
     }
@@ -54,5 +59,9 @@ class User extends Authenticatable
         } else {
             return false;
         }
+    }
+
+    public function getAgeAttribute() {
+        return $this->birthday->diff(Carbon::now())->format('%y');
     }
 }

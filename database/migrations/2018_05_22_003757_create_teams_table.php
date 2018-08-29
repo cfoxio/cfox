@@ -23,6 +23,7 @@ class CreateTeamsTable extends Migration
             $table->integer('teamleader_id')->nullable(true);
             $table->integer('manager_id')->nullable(true);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('team_user', function (Blueprint $table) {
