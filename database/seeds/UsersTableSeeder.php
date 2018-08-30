@@ -25,6 +25,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('testtest'),
             'language' => 'en',
             'birthday' => $faker->dateTimeBetween('-50 years', '-15 years'),
+            'steam' => '76561198052422727'
         ]);
         DB::table('users')->insert([
             'name' => 'sp4m',
@@ -33,6 +34,25 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('testtest'),
             'language' => 'de',
             'birthday' => $faker->dateTimeBetween('-50 years', '-15 years'),
+            'steam' => '76561198052422727'
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Degrad21',
+            'slug' => str_slug('degrad21', '-'),
+            'email' => 'degrad21@nordicsoldiekneipe.de',
+            'password' => bcrypt('testtest'),
+            'language' => 'de',
+            'birthday' => $faker->dateTimeBetween('-50 years', '-15 years'),
+            'steam' => '76561198073219400'
+        ]);
+        DB::table('users')->insert([
+            'name' => 'sonix',
+            'slug' => str_slug('sonix', '-'),
+            'email' => 'sonix@nordicsoldiekneipe.de',
+            'password' => bcrypt('testtest'),
+            'language' => 'de',
+            'birthday' => $faker->dateTimeBetween('-50 years', '-15 years'),
+            'steam' => '76561198133691098'
         ]);
 
         $users = factory(User::class, 50)->create()->each(function($u) {
